@@ -1,0 +1,1 @@
+* the navigator object contains all sorts of nifty information about the system that's currently browsing the webpage, from the browser name, to the OS the person is using. It appears to be really powerfull!

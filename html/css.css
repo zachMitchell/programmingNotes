@@ -1,0 +1,79 @@
+/*This is a comment*/
+
+/* classes are the appropriate to define multiple CSS objects, while id's are designed to only be used for one object:*/
+
+.className{
+    color="randomColor";
+  }
+  
+  /*you can specifiy what object the class is specifically for:*/
+  
+  h1.className{
+    font-size:300%;
+  }
+  
+  /*if you have multiple objects that use the same stuff, just group them all into one category!*/
+  
+  p,h1,body{
+    controls:"controls";
+  }
+  
+  /*background images:*/
+  
+  background-image: url("url");
+  
+  background-repeat: /*repeat/repeat-x/repeat-y/no-repeat*/;
+  
+  background-position: /* set the position of the background with words like "top left" or "bottom right"
+  
+  you can also do shorthand:*/
+  
+  background: url("url") repeat left top;
+  
+  /*Change the size of your background image:*/
+  background-size:50% 50%
+  
+  /*Margins allow spacing between HTML elements!*/
+  
+  margin: 30% /*up*/ 40% /*right*/ 50%/*bottom*/ 60% /*left*/
+  
+  /*you can also define each seperately:*/
+  
+  margin-left
+  margin-right
+  margin-bottom
+  margin-top
+  
+  /*padding gives text and other elements space inside the affected object:*/
+  padding-left: 50%;
+  
+  /*an outline is like a border, only it's the border... for the border*/
+  
+  outline: 12px dashed blue;
+  
+  /*the above is short hand, the properties from left to right are:*/
+  
+  outline-width;
+  outline-style;
+  outline-color
+  
+  display:in-line /*allows more than one html object to be on the same line.*/
+  border-collapse: collapse; /*turns all borders in a table into one (if there's no border, everything squeezes together)*/
+  
+  /*This thing is AWESOME!! you can define your own fonts through css syntax!!*/
+  @font-face{
+    font-family: fontNameHere;
+    src: url(./link/to/font);
+  }
+  /*you can have as many of these as you want!*/
+  
+  /*you can set the opacity of any object!*/
+  opacity:0.5
+  
+  /*If you set an element's position to "absolute", you can move that element anywhere on the screen!*/
+  
+  leTag{
+  position:absolute;
+    left: 50%; /*This makes the element move away from left*/
+  }
+  
