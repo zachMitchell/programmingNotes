@@ -1,9 +1,23 @@
 Flask
 =====
+[Documentation Link](http://flask.pocoo.org/docs/1.0/)
+[Jinja Documentation](http://jinja.pocoo.org/docs/2.10/templates/)
 
 Flask is a window between python and the apache server. With this, you can use the power of python to assist in making webpages!
 
 ## Setup
+If you're on a system with limited permissions, you can setup a python "Virtual environment" to do your work in.
+```bash
+#If you don't have virtualenv installed:
+pip install virtualenv
+
+#run it in the directory you want:
+virtualenv $yourDirectoryName
+#Launch it; install flask after your inside:
+cd $yourDirectoryName
+source ./bin/activate
+```
+
 In bash, just set these variables to edit live changes, and specify where the root page should load:
 ```bash
 export FLASK_ENV=development
@@ -12,7 +26,7 @@ export FLASK_APP=yourProgram.py
 #Just run this to launch the server:
 python -m flask run
 ```
-
+## Usage
 * for every path you want the root to render, you can initialize it, and in turn, it can use the path as part of any arguments for your functions:
 
 ```python
@@ -51,4 +65,11 @@ There are two types of methods you need to retrieve form data from get and post:
 request.form['valueHere']
 #get:
 request.args.get('valueHere')
+```
+
+* You can also retrieve files through the `request.files` object. In order to submit files to a server, you need `enctype="multipart/form-data"` in the form. The filenames can be read through the fileObject.filename value. (see [Here](http://werkzeug.pocoo.org/docs/0.14/datastructures/#werkzeug.datastructures.FileStorage) for more info.)
+
+* redirecting is also possible through the following synatx:
+```py
+return redirect("./url/here")
 ```

@@ -19,10 +19,11 @@ This can help alter audio settings [usage](https://askubuntu.com/questions/97936
 
 ### examples: 
 ```bash
-amixer -D pulse sset Master 5%+ #adds five percent of volume.
+amixer -D pulse set Master 5%+ #adds five percent of volume.
 #not adding + or - sets the volume to that specific percentage  
-amixer -D pulse sset Master [mute/unmute] #mutes and unmutes
+amixer -D pulse set Master [mute/unmute] #mutes and unmutes
 ```
+* `set <device> 100%` Can change the device volume an exact percentage (where 100% is loudest)
 ## env
 displays all environment variables
 

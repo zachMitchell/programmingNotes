@@ -53,7 +53,7 @@ virtual char otherFunct()=0;// if you do this, the inherited object MUST make it
 //templates
 
 //in c++, generics is called templates. to make one, you need:
-template<typename bleh> //where blehis the name of your type
+template<typename bleh> //where bleh is the name of your type
 
 bleh function();//can return anything with the bleh type, and can do calculations with bleh, as long as bleh is a number
 
@@ -67,4 +67,3 @@ strcmp(argv[1],"string2Compare");
 
 //The arguments can also be directly be converted to string format; just keep resources in mind when doing this though :)
 //(https://stackoverflow.com/questions/3648620/c-command-line-argument-comparison)
-
