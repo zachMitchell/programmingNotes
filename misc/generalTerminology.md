@@ -4,13 +4,13 @@
 This is a template to tie in related objects together; for example: shape would be an abstract class for square and circle.
 
 ### syntax (java)
-
+```java
 abstract class shape{
 private int number = 5 //Anything using this abstract class can use and change the number for their own purposes.
 
 public abstract void method();//Abstract classess can have abstract methods, which are like theoretical methods that can abe exuecuted if the extended class has modified it.
 }
-
+```
 regular methods can be inserted into abstract classes as well.
 
 ## interface
