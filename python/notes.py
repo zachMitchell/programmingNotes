@@ -80,3 +80,16 @@ call(["commandHere","arg1","arg2"])
 import directory1.directory2.whatevever #./directory1/directory2/whatever.py
 
 #python 2.7 or less can only read within the same directory...
+
+#handling files is pretty simple in python; there's a builtin called open() that can handle this:
+myFile = open("AWESOMEFILE.html.txt.zip.gz.bin") #awwww yeah; ultimate compression B)
+
+#Python has nice compatibility with the for syntax for file management. simply running this will allow you to read each line on the fly.
+#You can also read everything at once, though it's probably best to do this when the file is small...
+awesomeFile = myFile.readlines() #Returns a list of lines from the file.
+#Close the file by running:
+awesomeFile.close()
+
+#Go back to the beginning of the file:
+myFile.seek(0)
+#Learn more about file management here: https://docs.python.org/2/library/stdtypes.html#file-objects
