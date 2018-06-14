@@ -15,7 +15,7 @@ asdf = False
 
 #lists are like arrays, they can be defined, and accessed just like javascript
 randomList = ["asdf",1234,'a',test]
-randomLIst[1] #returns 1234
+randomList[1] #returns 1234
 
 #Tuples are like locked-down lists (They have a restricted size instead of dynamic)
 randomTuple = (randomList)
@@ -29,6 +29,9 @@ randomDictionary = {
   "asdf":"fsda","qwer":"rewq"}
 
 print (randomDictionary["asdf"]) #returns fsda
+
+#You can get the keys of a dictionary by using:
+randomDictionary.keys() #Returns a list of keys in the system.
 
 #functions
 def functionName():
