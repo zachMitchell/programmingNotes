@@ -96,3 +96,7 @@ awesomeFile.close()
 #Go back to the beginning of the file:
 myFile.seek(0)
 #Learn more about file management here: https://docs.python.org/2/library/stdtypes.html#file-objects
+
+#list comprehension is an interesting concept, it lets you run a pattern to generate a series of values for either a list or a generator:
+generatedValues = [value+value for value in range(5)]#creates 0,2,6,8,10
+
