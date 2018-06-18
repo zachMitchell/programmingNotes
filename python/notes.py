@@ -100,3 +100,29 @@ myFile.seek(0)
 #list comprehension is an interesting concept, it lets you run a pattern to generate a series of values for either a list or a generator:
 generatedValues = [value+value for value in range(5)]#creates 0,2,6,8,10
 
+#You can detect types with a couple of components:
+import types
+type("asdf") #This returns a type object which can be compared with:
+type('') == types.StringType
+#the types object has an equivelent that matches whatever gets returned from type(), so it can be used for nearly all variable types
+
+#If you want to pass by reference, things get a little weird. The idea is to not directly alter a mutable value...
+mutableList=[1,2,3]
+def changeList(lInput):
+  lInput.append(4) #Change the output by reference. This appears to be the only way to alter something because you can't access the argument list
+
+#Tupples are like lists... but constant :/
+myTupple = (1,2,3,4)
+#You can make a function that accepts multiple arguments; a variable starting with * indicates a tupple, and ** represents a dictionary:
+#https://stackoverflow.com/questions/919680/can-a-variable-number-of-arguments-be-passed-to-a-function/919720#919720
+def leFunction(*myArgTupple):
+  for thing in myArgTupple:
+    print(thing)
+#You would call this function like:
+leFunction("yay","whatever >:(","another value","for the tupple")
+
+def dictFunction(**values):
+  for key,value in values:
+    print("Key:"+key+"\nvalue:"+value+"\n\n")
+
+dictFunction(myCoolVal = 1,myLameVal="laaaaaaame")
