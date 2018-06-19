@@ -73,6 +73,8 @@ class whatever(object): #ommit object to just make a class.
   def oi():
     print "hi"
 
+#to define a new instance, do:
+yourObject = whatever() #without the parentesis, python will think your referencing the class itself...
 #There's this interesting method for creating lists: https://developers.google.com/edu/python/sorting#list-comprehensions-optional
 
 #To launch a system command, you need this:
@@ -100,3 +102,5 @@ myFile.seek(0)
 #list comprehension is an interesting concept, it lets you run a pattern to generate a series of values for either a list or a generator:
 generatedValues = [value+value for value in range(5)]#creates 0,2,6,8,10
 
+#This is shorthand for a tupple:
+1,2,3,4
