@@ -14,11 +14,14 @@ everytime you want to use reactjs, you need to specify where you would like to r
 </div>
 
 <script type="text/babel">
-ReacDOM.render(thingamajig,document.getElementById("randomElement"));
+ReactDOM.render(thingamajig,document.getElementById("randomElement"));
 //The element itself is called the "root" element.
 </script>
 ```
 since babel is needed to compile the JSX, you can't change anything after it's been created.
+
+### ReactDOM
+One interesting thing about reactjs is that is has it's own DOM. According to the website, it uses less recourses to make vs a regular HTML DOM element. See: [here](https://reactjs.org/docs/rendering-elements.html#rendering-an-element-into-the-dom)
 
 ## Javascript thingamajigs
 * the **let** keyword replaces **var** inside a scope other than gloabal. In other words: let only defines a variable only for that scope and removes it when going back to global.
