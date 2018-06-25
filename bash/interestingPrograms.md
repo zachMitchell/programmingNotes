@@ -29,3 +29,14 @@ displays all environment variables
 
 ## paplay
 an audio player launched from the terminal. This is built in to ubuntu.
+
+## Uuencode/Uudecode
+These commands allow you to convert any file in plain text! They come from the package: **[sharutils](https://www.gnu.org/software/sharutils/manual/)** *(Shell archive utilities1)*
+
+`uuencode -m fileToConvert fileName` will convert your file to plain text. fileName will be the name of the file when it get's decoded.
+
+`uudecode plainTextFile.txt` brings your file back to it's original state.
+### Resources:
+[Link to Mozilla developer documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs)
+
+[Wikipedia](https://en.wikipedia.org/wiki/Uuencoding)

@@ -30,8 +30,8 @@ python -m flask run
 * for every path you want the root to render, you can initialize it, and in turn, it can use the path as part of any arguments for your functions:
 
 ```python
-app.route('/') #This is default
-app.route('/<varHere>')#This is a value that can be used in function arguemnts
+@app.route('/') #This is default
+@app.route('/<varHere>')#This is a value that can be used in function arguemnts
 ```
 
  * These routes can be defined as specific variables:
@@ -72,4 +72,17 @@ request.args.get('valueHere')
 * redirecting is also possible through the following synatx:
 ```py
 return redirect("./url/here")
+```
+
+## JSON Files
+You can make use of JSON through a collection of utilities from both jinja and flask. See [The Documentation](http://flask.pocoo.org/docs/1.0/api/#module-flask.json)
+
+Flask relies on a couple of json converters, so it created it's own import statement:
+```python
+from flask import json
+```
+
+To insert json-safe code into jinja, you would write:
+```html
+<script>var myAwesomeJson = {{jsonVal|tojson|safe}}</script>
 ```
