@@ -43,6 +43,7 @@ python -m flask run
 ```python
 url_for('static', filename='fileHere.blah') #I'm guessing this just returns this as a string
 ```
+**This will allow you to access those files in `/static/`**
 
 * To render an html file,you need this thingy: `render_template('yourHtmlHere',randomValue=someOtherValue,Anothervalue="hoohaa",etc="etc..")`
     * This will look at the templates folder in the current directory to find the respective html. It also sends any python values back with it.
