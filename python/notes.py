@@ -81,6 +81,11 @@ yourObject = whatever() #without the parentesis, python will think your referenc
 from subprocess import call
 call(["commandHere","arg1","arg2"])
 
+#Sooooo, It turns out from the above that you can't return the string with that method. To do that you need this:
+from subprocess import Popen,PIPE
+yay = Popen(['command','arg'],stdout=PIPE).communicate() #runs the command and returns a tupple with the string at index 0
+#source: https://docs.python.org/3.6/library/subprocess.html?highlight=call#popen-objects
+
 #By the way, if you want to import your own stuff, it's different on versions of python < 3... while you can do this in python3+
 import directory1.directory2.whatevever #./directory1/directory2/whatever.py
 #reload your module with:
@@ -100,6 +105,8 @@ awesomeFile.close()
 #Go back to the beginning of the file:
 myFile.seek(0)
 #Learn more about file management here: https://docs.python.org/2/library/stdtypes.html#file-objects
+#There's also a method to make a file object just through a string: (https://docs.python.org/3.6/library/io.html#io.StringIO)
+io.StringIO("my\nawesome\nstring") #returns a file object containing unicode strings.
 
 #list comprehension is an interesting concept, it lets you run a pattern to generate a series of values for either a list or a generator:
 generatedValues = [value+value for value in range(5)]#creates 0,2,6,8,10
@@ -132,3 +139,11 @@ def dictFunction(**values):
     print("Key:"+key+"\nvalue:"+value+"\n\n")
 
 dictFunction(myCoolVal = 1,myLameVal="laaaaaaame")
+
+#You can alter the behaivior of python itself thorugh some built-in functions!! (https://docs.python.org/3.6/reference/datamodel.html?highlight=__getitem__#emulating-container-types)
+#For example, you can alter the way indexing works on something that's not a list!
+class yay(object):
+  def __getitem__(self,key):
+    #return whatever you want based on output!
+    return key*key
+
