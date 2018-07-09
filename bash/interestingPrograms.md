@@ -40,3 +40,11 @@ These commands allow you to convert any file in plain text! They come from the p
 [Link to Mozilla developer documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs)
 
 [Wikipedia](https://en.wikipedia.org/wiki/Uuencoding)
+
+## whereis / which
+
+* **which** -  which version of the program is being used by the terminal.
+* **whereis** - how many different variations of the program your looking for are there, and where are they located?
+
+## update-alternatives
+Change the default programs in your linux machine. (Debian based linux only)
