@@ -4,6 +4,7 @@
 * Somehow I managed to never know this until now: **javascript arrays are referenced by default, not copied.** No idea how this passed considering this is my best language, but it's here now XP
     * The reason is that Arrays are defined as a type of Object, and Objects are also referenced by default. To solve this, there's a function called `yourArrayHere.slice()`
     * *See [Here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) For the full shebang...*
+* without the "var" keyword, javascript assumes the variable is global.
 ```js
 //This is designed to get a specific portion of an array, but return the entire thing by default:
 //Values are copied by default so this works :P
