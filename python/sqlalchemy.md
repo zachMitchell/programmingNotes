@@ -1,6 +1,9 @@
 SqlAlchemy
 ==========
 [(Documentation)](https://docs.sqlalchemy.org/en/latest/core/tutorial.html)
+
+[(ORM Docs)](https://docs.sqlalchemy.org/en/latest/orm/tutorial.html)
+
 Sql Alchemy is a python api that makes it easier to handle database values prorgramatically, so much so that it almost looks exactly the same as python itself!
 
 It doesn't have to be that way however, and can act like a regular thin-clinet to a database if one chooses. It has support for many different sql servers, including mySQL, Oracle, and SQLlite.
@@ -9,7 +12,7 @@ It doesn't have to be that way however, and can act like a regular thin-clinet t
 You will need a few things before starting:
 ```py
 import sqlalchemy
-from sqlalchemy import createEngine,Table,Column,Integer,String,MetaData,ForeignKey
+from sqlalchemy import create_engine,Table,Column,Integer,String,MetaData,ForeignKey
 ```
 
 ### Database
@@ -22,10 +25,10 @@ metadata = MetaData() #This is the middleman to help connect the engine with the
 ## Creating Tables
 When making tables, it is represented programatically:
 ```py
-myAwesomeTable = Table('nameOfTable',metadata,
-Column('myAwesomeVal',Integer),
-Column('anotherCoolVal',String))
-);
+myAwesomeTable = Table('nameOfTable',metadata,\
+Column('myAwesomeVal',Integer),\
+Column('anotherCoolVal',String))\
+)
 
 #When you're done, just  tell the engine run the equivelent sql statements:
 metadata.create_all(engine)

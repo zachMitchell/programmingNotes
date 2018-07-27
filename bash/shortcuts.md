@@ -7,8 +7,8 @@ Bash Shortcuts
 * **CTRL + X + E** Edit a command in your favorite editor.
 * **ALT + .** Use the previous command's arguments.
 * Cutting:
-    * **CRTL + K** cut forwards
-    * **CTRL + w** cut backwards
+    * **CRTL + K** cut all the way forwards
+    * **CTRL + w** cut one argument backwards
+    * **CTRL + U** cut all the way backwards.
 * Pasting:
     * **CTRL + Y** paste forwards
-    * **CTRL + U** ???
