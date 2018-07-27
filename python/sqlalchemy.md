@@ -61,3 +61,9 @@ row[0]
 
 If you arn't interested in looking at the rest of the results, you should close the db by: `result.close()`
 
+## misc
+* Many operators with sqlAlchemy objects return an sql equivelent; this is used because it can help generate an sql statement programatically. Therefore, instead of returning true here...
+```py
+tableObject == otherTableObject
+```
+    it turns it into `tableObject = tableObject` (basically a string :P)
