@@ -12,3 +12,8 @@ function leObject:randomFunction()
 
 --if you use the colon while calling your object-oriented function, the first parameter will be filled in as the object you inserted.
 --by default, tables will be referenced to, not copied!
+
+--When running a function like the above, you don't run it with dot notation, rather, you execute it like it was defined:
+thing = {}
+leObject(thing)
+thing:randomFunction()
