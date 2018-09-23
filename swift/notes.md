@@ -76,3 +76,25 @@ var myCoolClosure = {() ->String in return "hi"} //really fast
 [1,2,-1,-2].sorted(by:{(t1:Int,t2:Int) in return t1 < 0}) //The second argument can be used for comparing the first, but I wound up comparing this to 0.
 ```
 
+* Multiline strings look like python strings, but they must begin and end with `"""` on different lines:
+
+```swift
+var myString = """
+your string here
+"""
+```
+ * These strings are intelligent enough to know where they are when IDE's use spacing
+* sets are a container type that contains unique values, they are initialized by:
+```swift
+var thing = Set<String>()
+//or...
+var thing: Set = [1,2,3]
+```
+* sets come with really neat functions to combine other sets (e.g `union`,`intersection`)
+    * they can be returned as a string through the `sorted` function
+* The closedRange object is like a set where it can't be directly accessed. It's designed to make iterations with raw numbers easier.
+```swift
+for i in 1...3 {
+    //shtuffz
+}
+```
