@@ -75,6 +75,28 @@ var myCoolClosure = {() ->String in return "hi"} //really fast
 ```swift
 [1,2,-1,-2].sorted(by:{(t1:Int,t2:Int) in return t1 < 0}) //The second argument can be used for comparing the first, but I wound up comparing this to 0.
 ```
+* They can be shortened to the point where you don't even mention variable names anymore! Before any of that though, it's usefull to use the other variations as well
+```swift
+//You don't need to specify the return type during some situations:
+({a,b in print(a+" "+b)})("arg1","arg2")
+```
+* Auto closures are like regular closures but without argument synatx:
+```swift
+var asdf = {/*statements*/}
+```
+* the `remove(at:)` function is designed for arrays; it removes an element, while returning what's removed. This is used in an example with autoclosures.
+
+* There's also something called "trailing closures" which lets you insert a closure after a function call:(
+```swift
+func randomFunction(closureName: ()->Void){}
+
+randomFunction(){
+    print("This is a trailing closure!")
+}
+```
+
+* In general, closusres can be made into *escaping* closures by adding @escaping to it's definition. This allows the closure to get values around it's scope [I haven't had any success with this yet, but they have examples where the scope is a class or something]
+
 
 * Multiline strings look like python strings, but they must begin and end with `"""` on different lines:
 
@@ -98,3 +120,42 @@ for i in 1...3 {
     //shtuffz
 }
 ```
+* enums are unique... I'm not sure what to say about them, so I'll just play along with the book...
+```swift
+//They can be created through:
+enum thing{
+    case hi,there
+}
+```
+The values themselves appear to be unique; they're not strings, but can be compared to other related values...
+
+* if you assigned a variable to an enum value, you don't need to say the enum name anymomre if you want to swap it's value (e.g `.there`)
+
+* Looks like variables other than strings can be inserted into a string through the following syntax: `\(element)`, where element is your variable.
+
+* enums can be iterated over through the `for in` loop via the following:
+```swift
+enum thing: CaseIterable{
+    case one,two,three
+}
+//allCases basically converts it into an array :P
+for ror in thing.allCases{
+
+}
+```
+* Structures and classes are defined and initialized very similarly:
+```swift
+struct hi{
+
+}
+class there{
+
+}
+
+//Create a new instance:
+var asdf = hi()
+
+```
+* because classes can be refrenced, swift has `===` and `!==`
+### structures vs classes:
+1. structures are copied, classes are referenced

@@ -97,6 +97,14 @@ class whatever(object): #ommit object to just make a class.
 #to define a new instance, do:
 yourObject = whatever() #without the parentesis, python will think your referencing the class itself...
 ```
+* the `with` statement is designed for classes; it helps construct and deconstruct them gracefully within one block. as long as you're in that block, it will stay constructed. In order to use this cool feature, you need a couple of functions within the class: [See here](https://docs.python.org/3.6/reference/datamodel.html?highlight=__enter__#object.__enter__), [and here](http://effbot.org/zone/python-with-statement.htm)
+
+```py
+with className:
+  #__enter__()
+#the end of the with statement...
+#__exit__()
+```
 
 ## I/O
 * input comes through: `input("GIMME SOMETHING!!!!!!")` (this only accepts strings)
