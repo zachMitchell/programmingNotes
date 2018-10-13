@@ -70,6 +70,7 @@ var dict3 = [String:String]()
 ```swift
 var myCoolClosure = {() ->String in return "hi"} //really fast
 ```
+* When calling closures, you don't need to specify the name in the arguments.
 
 * swift comes with a sorting method that requires a function (made by you!) to work. It seems to act like a double for loop in terms of how it's iterating through things.
 ```swift
@@ -149,13 +150,48 @@ struct hi{
 
 }
 class there{
-
+    var thing = 1
 }
 
 //Create a new instance:
-var asdf = hi()
+var asdf = there(thing:2) //The argument is optional!
 
 ```
+* classes and structures can have **lazy** values. These start with `lazy` and only initialize after it is mentioned elsewhere. They always need a value inside them.
+* Any value within a class can be "computed" or programatic. This lets you have getters and setters for those values:
+```swift
+class yay{
+    var thing: String:{
+        get{
+            return 1+1
+        }
+        set(newval){
+            
+        }
+    }
+}
+```
+
 * because classes can be refrenced, swift has `===` and `!==`
 ### structures vs classes:
 1. structures are copied, classes are referenced
+
+* In classes, structures (etc), you can have something called **Computed properties**. They seem to replace getters and setters for classes, except everything is all in one value [That's kindof nice :D]
+* It even hides the fact that it's a computed value, so it feels completly natural!!
+
+```swift
+class thingy{
+    var randomNumber = 4;
+    //Here's a computed property:
+    var cProperty:Int{
+        get{
+            //you can stick anything related to the class here
+            return randomNumber*2
+        }
+        set(newVal){ //This only accepts one argument!
+            randomNumber = newVal
+        }
+    }
+}
+```
+* If you don't want arguments in your setter, the default value is `newValue`
