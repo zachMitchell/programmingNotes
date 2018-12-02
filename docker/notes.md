@@ -9,3 +9,5 @@ I stumbled around everywhere trying to understand how docker's system works. Mos
 * when making a container, you only need to run the `docker run` command once! afterwards you can run  `docker start <name/id>`
 
 * to start a terminal in your container, you need the flag `-it` (interactive terminal), then specify your terminal command after the container name
+
+* If you see this error: `docker exec user process caused "exec format error"`, it means you either have the wrong architecture, or in a script's case, you didn't specify the binary to launch your script XP

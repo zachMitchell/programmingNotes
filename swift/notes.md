@@ -195,3 +195,8 @@ class thingy{
 }
 ```
 * If you don't want arguments in your setter, the default value is `newValue`
+
+* Methods are virtaully the same thing as functions, but with a few differences:
+    * They can refer to whatever's inside it's scope via `self` (Not required)
+    * Methods within structures are normally not allowed to modify values inside itself; to do that, you place `mutating` in front of the function definition.
+    * methods can be used to make a new instance of the parent structure!
