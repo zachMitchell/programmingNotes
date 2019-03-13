@@ -6,6 +6,6 @@ Visualforce is the foundation for salesforce pages. It is similar to ASP.NET whe
 
 Just like html, you can set parameters to VF tags.
 
-## Visualforce expressions:
+* You can retrieve variables from your database using `{! $variable.value }` syntax. Expressions are case-insensitive, and can be concatinated through `&`.
 
-You can retrieve variables from your database using `{! $variable.value }` syntax. Expressions are case-insensitive, and can be concatinated through `&`.
+* Visualforce works on something called "components". Coarse-grained components have broad functionality, while fine-grained is focused.
