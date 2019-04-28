@@ -162,6 +162,13 @@ type("asdf") #This returns a type object which can be compared with:
 type('') == types.StringType
 ```
 * the types object has an equivelent that matches whatever gets returned from `type()`, so it can be used for nearly all variable types.
+* When playing with chars, use `ord('a')` to find the charCode of a character, and `chr(97)` to find the char of a number.
+
+## File management
+* Python can explore the operating system through the `os` import (See [here](https://docs.python.org/3.7/library/os.html#process-parameters))
+* There are two good methods for scanning a directory, `os.listdir()` and `os.scandir()`
+  * the former simply returns a list of entries of the current directory
+  * the latter returns an iteration object that tells more about each file. In fact, it's much more sophisticated, each file/folder has it's own individual object.
 
 ## Misc.
 * You can alter the behaivior of python itself thorugh some built-in functions!! (see [here](https://docs.python.org/3.6/reference/datamodel.html?highlight=__getitem__#emulating-container-types))
