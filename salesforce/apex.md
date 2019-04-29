@@ -33,6 +33,7 @@ When deciding whether to use one or the other statement, trailhead suggests usin
 * You can create test classes to make sure your code is working by adding `@isTest` to the beginning of the document, as well as for each test method.
     * At the end of each test, use `System.assertEquals(bool,bool[,errorMessageHere])` to make sure the output is what's expected.
     * If you need test data, trailhead reccomneds making test classes that will help generate unlimited data for you.
+* All sObjects can be turned into a map through the following syntax: `sObjectHere.getPopulatedFieldsAsMap();` [source](https://salesforce.stackexchange.com/questions/8773/is-it-possible-to-convert-an-sobject-to-a-map/164436#164436)
 ### SOQL
 * SOQL statements can be natively typed within the language itself...
 ```apex
