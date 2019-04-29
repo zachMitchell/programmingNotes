@@ -12,3 +12,15 @@ var myArray=[1,2,3,4];
 var myNewArray = myArray.slice(); //Copies the whole thing.
 var myOtherArray = myArray.slice(2); //Gets 3 and 4.
 ```
+
+
+## Speech synthasis
+[link](https://developer.mozilla.org/en-US/docs/Web/API/Window/speechSynthesis)
+
+Just learned about speech synthasis today! It appears to be a feature used in modern web-browsers. It may or may not be used in the future.
+
+### Syntax:
+
+Almost everything is done through the `[window].speechSynthesis` object. You can grab a list of voices through `speechSyntesis.getVoices()`. This stores the name and language (`lang`) values for each voice.
+
+Text that is read from the TTS program is known as an utterance. Create a new utternace by using `new SpeechSynthesisUtterance([string])`. Set the voice through `[utterance].voice` You can then make the TTS speak through: `speechSynthesis.speak([utterance])`.
