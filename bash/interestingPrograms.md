@@ -48,3 +48,11 @@ These commands allow you to convert any file in plain text! They come from the p
 
 ## update-alternatives
 Change the default programs in your linux machine. (Debian based linux only)
+
+## lpadmin (Cups administration)
+Cups is the printing server for MacOs and Linux. I keep forgetting the commands to operate it so here's some snippets and docs to go with them:
+
+* lpadmin [Cups manual (local machine only)](http://localhost:631/help/sharing.html?QUERY=remote%20printer#BASICS)
+* lpr (`man lpr`)
+
+For other cups commands, see: `man cups`
