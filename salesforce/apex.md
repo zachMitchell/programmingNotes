@@ -43,6 +43,8 @@ Contact[] guys = [SELECT * FROM Contact WHERE name = 'fred'];
 * SOQL statements cannot use `*` for queries; you *must* select something or it will not work.
 * when using the square bracket syntax, you can use existing variables (so they don't conflict with SOQL) via `:variableName`
 * Was just experimenting with SOQL, it's really unique in that if you set your limit within the statement to 1, it can either return an array **or** a single sObject depending on the variable it's going to.
+* Sub-queries work a tad differently than what SQL does. When running one, anything that the key object it's related to will be how it get's queried. for example: `select (select Name from Contacts) from Account` is going to return anything associated with the ID of `Account` and that result's criteria.
+    * Retrieving that data should be as simple as invoking the plural name of your SObject (Contacts in the above example): `queryResults[0].Contacts` *(Returns a List of Contacts.)*
 
 ### [SOSL](https://trailhead.salesforce.com/content/learn/modules/apex_database/apex_database_sosl?trail_id=force_com_dev_beginner)
 * **SOSL** Is a simpler sql-like language that makes finding entries within salesforce shorter (probably more expensive though :P). See ([here](https://trailhead.salesforce.com/content/learn/modules/developer_console/developer_console_queries?trail_id=force_com_dev_beginner#Tdxn4tBK-heading6)) for more details.
