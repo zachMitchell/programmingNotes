@@ -69,3 +69,45 @@ New content!
 * There's something new coming out called preview scratch orgs, which let's you run future verisons of salesforce with your code.
 * https://about.gitlab.com/partners/sfdx-offer
 * sfdx was released around '17; so you've been using some really new stuff :)
+
+## Becoming a certified salesforce developer
+
+* Buying a reservation to the test is $200, but retrying is half the price.
+
+## Advanced Apex Testing
+
+* @TestVisible
+* You can use a csv to create a test on the fly with new data able to be created quickly.
+    * This lets you test your code without re-deploying
+    * You can reference other id's within the same csv so you can link data to other data!
+* One interesting thing you can do is a "sanity check", which is checking data to make sure everything is expected before the test starts (run system.assert())
+* Lookup: httpMock
+    * [now i remember] He's talking about creating fake http responses.
+    * He showed a technique where you return a mock response, then removing them as he returns the value (Javascript does something like this natively, I forget the name though.)
+* Lookup: System.StubProvider, Type (Object), Test.createStub
+* DML: data manipluation langauage.
+    * The guy here said you don't really need to do this stuff in your testing[?] (People tend to do it in order to reference other SObjects... like me XP)
+
+## Tips and tricks for acing your certification Exam
+
+* Getting a certification is a massive leg up on your carreer, you might just get lots of attention on linkedIn!
+* Places to learn the right stuff for a certification:
+    1. https://trailhead.salesforce.com/credentials
+    1. trailheadDX workshops
+    1. trailhead
+    1. documentation
+* Paranthesis: topics of high priority on the exam
+* The exam is multiple choice / multi select. Time varies depending on the test.
+* You can go back and review questions, it doesn't force you to push forward. It can even take you directly back to the question
+* The test can be taken online, but it can also be taken in a testing center! the latter option depends on your location though :P
+* Tips & tricks:
+    * Know your testing style.
+    * do things that help you remember answers to questions, whether it be making a visual chart, verbal repition, etc.
+        * [When I think of this, it reminds me of [The method of loci](https://en.wikipedia.org/wiki/Method_of_loci)]
+    * Manage your time properly. Know what you need to do depending on your test-taking style. Depending on the test, you have a set number of questions, so you need to manage your time based on that information.
+    * Disect each word in the question. Glazing over it can cause mistakes [I can speak from experience XP].
+    * remember how you answered the question. Did you guess? Was it an "educated" guess? Was it your gut?
+    * You can start the test whenever you want. It doesn't start it until you click the button. That way you can relax and analyze what you want to do.
+    * "expect to fail" - Mistakes are human, it's fine if you make a mistake. It's something that happens all the time, so no pressure if you get wrong the first time.
+* At the end of the exam, you get feedback based on your test results. (e.g you got Apex 96% correct)
+* Having a study budy and going to "Trailblazer community groups" can help you study.
