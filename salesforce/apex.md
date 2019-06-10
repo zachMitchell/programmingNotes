@@ -34,6 +34,9 @@ When deciding whether to use one or the other statement, trailhead suggests usin
     * At the end of each test, use `System.assertEquals(bool,bool[,errorMessageHere])` to make sure the output is what's expected.
     * If you need test data, trailhead reccomneds making test classes that will help generate unlimited data for you.
 * All sObjects can be turned into a map through the following syntax: `sObjectHere.getPopulatedFieldsAsMap();` [source](https://salesforce.stackexchange.com/questions/8773/is-it-possible-to-convert-an-sobject-to-a-map/164436#164436)
+    * There is however, one catch: the fields in this map are read-only, so in order change the values, you would need to separate the values from the map itself. This is also known as the "FinalException", which is on line -1 and column -1 :P
+* There's a key to obtaining a list of fields of an SObject: `<SObject>.getDescribe().fields.getMap()`. This returns a map of values. it can even be turned into a list of field names using `.values()`
+
 ### SOQL
 * SOQL statements can be natively typed within the language itself...
 ```apex
