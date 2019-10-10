@@ -35,8 +35,11 @@ myObj.myVarName = true
 
 * `Object.defineProperty()` lets you set some rules about values within objects; it can help you make some variables read-only. (dev.Mozilla)[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty]
 
-* **Generator functions** Are really interesting! They're like regular functions, but you can come back to them for more :O (dev.Mozilla)[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*]
-=======
+* **Generator functions** Are really interesting! They're like regular functions, but you can come back to them for more :O (dev.Mozilla)[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function]
+
+* **Mutation Observers** - These rock! They let you keep tabs on everything that's happening in your DOM element, it could potentially help make your own html tags that respond to tiny changes :D ((Mozilla doc))[https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver]
+
+* **Web components** - kindof what I described above, but it appears to be a different standard: (youtube)[https://www.youtube.com/watch?v=YBwgkr_Sbx0]
 
 ## Speech synthasis
 [link](https://developer.mozilla.org/en-US/docs/Web/API/Window/speechSynthesis)
