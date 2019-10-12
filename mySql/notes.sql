@@ -19,3 +19,7 @@ create table if not exists tablename(
 
 --Adding hours to dates:
 addtime(timeObject,"12:34:56");
+
+show tables; --yeh
+
+alter user 'myUsername' identified by 'newPassword' --password management: https://dev.mysql.com/doc/refman/5.7/en/password-management.html
