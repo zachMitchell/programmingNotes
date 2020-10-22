@@ -56,3 +56,8 @@ Cups is the printing server for MacOs and Linux. I keep forgetting the commands 
 * lpr (`man lpr`)
 
 For other cups commands, see: `man cups`
+
+
+## /etc/fstab
+
+Not a command, but a good place to look in order to manually mount a drive. There's even a man page for it.
