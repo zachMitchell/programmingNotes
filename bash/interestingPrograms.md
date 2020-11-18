@@ -61,3 +61,9 @@ For other cups commands, see: `man cups`
 ## /etc/fstab
 
 Not a command, but a good place to look in order to manually mount a drive. There's even a man page for it.
+
+## fdisk
+
+I keep forgetting the name of this, so this section is here XP
+
+`fdisk -l` - lists your disks regardless if they're mounted or not.
