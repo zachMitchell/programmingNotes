@@ -67,3 +67,11 @@ Not a command, but a good place to look in order to manually mount a drive. Ther
 I keep forgetting the name of this, so this section is here XP
 
 `fdisk -l` - lists your disks regardless if they're mounted or not.
+
+## update-rc.d
+
+A debian/ubuntu command that manages a service at startup. When searching for this command I wanted to disable world community grid in order to fire it up at will
+
+The example from stackexchange -> duckduckgo XP
+`sudo update-rc.d -f apache2 remove`
+I used `disable` instead of remove 
