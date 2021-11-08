@@ -16,7 +16,10 @@ Pretty straightforward - I placed godot in my userspace folder (`/home/zachary/D
 
 ### VSCode
 
-...I'm not sure yet XP
+I have one-half of the tools on linux:
+* [godot-tools](https://marketplace.visualstudio.com/items?itemName=geequlim.godot-tools)
+    * The debug console doesn't fully work (not possible to edit variables on the spot), but in place of that the developers of the extension created an *interactions* section where you view nodes and change the values thorugh a different prompt. Global variables are also able to be watched in real time.
+* [c# tools for godot](https://marketplace.visualstudio.com/items?itemName=neikeq.godot-csharp-vscode) is installed, but is not working, at least with .NET
 
 ## Random links I want to remember
 
@@ -38,3 +41,17 @@ myNodeHere.Connect("my_listener_with_underscores", objectThisAppliesTo, nameOf(_
 * Ok this is what I was looking for: (https://docs.godotengine.org/en/stable/getting_started/step_by_step/scripting_continued.html#creating-nodes) - that way I can programatically make a ton of enimies at once for example.
 * In order to find the window size, godot supports looking at OS variables (e.g `OS.window_size`) (https://docs.godotengine.org/en/stable/classes/class_os.html#class-os-property-window-size)
 * `Vector2` is an interesting object... by placing in two numbers you have something more powerfull than an array that can allow you to do many things with just two points in space.
+
+## Physics!
+
+* For objects to collide with eachother, you need a "body" that contains a collision shape (e.g CollisionShape2D)
+* Several listeners for seeing if the object entered or exited an item require certain variables to be checked within the body, e.g: `contact_monitor` should be set to true and `contacts_reported` should be set to the amount of items you want to detect at once.
+
+## Files
+
+* In GDScript you would load a file through [this object](https://docs.godotengine.org/en/stable/classes/class_file.html)
+    * [get_buffer](https://docs.godotengine.org/en/stable/classes/class_file.html#class-file-method-get-buffer) will help obtain the file in something called a `PoolByteArray`, which converts everything into bytes. Audio-wise this is important if you want sounds to be dynamic and want to load streams of audio from a list.
+
+## Audio
+
+* [AudioStreamMP3](https://docs.godotengine.org/en/stable/classes/class_audiostreammp3.html) is used for audio, but you need an `AudioStreamPlayer2D` (or 3D) to actually play this audio.
