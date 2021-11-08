@@ -41,6 +41,10 @@ myNodeHere.Connect("my_listener_with_underscores", objectThisAppliesTo, nameOf(_
 * Ok this is what I was looking for: (https://docs.godotengine.org/en/stable/getting_started/step_by_step/scripting_continued.html#creating-nodes) - that way I can programatically make a ton of enimies at once for example.
 * In order to find the window size, godot supports looking at OS variables (e.g `OS.window_size`) (https://docs.godotengine.org/en/stable/classes/class_os.html#class-os-property-window-size)
 * `Vector2` is an interesting object... by placing in two numbers you have something more powerfull than an array that can allow you to do many things with just two points in space.
+* The `Node._input` method allows one to detect a variety of different things, such as a mouse click or a keypress on the keyboard. It's parameter is an [`InputEvent`](https://docs.godotengine.org/en/stable/classes/class_inputevent.html#class-inputevent)
+    * [Tutorial](https://docs.godotengine.org/en/stable/tutorials/inputs/inputevent.html)
+    * GDScript has a special operator for boolean statements (`is`). In the tutorial above, it uses that to determine the specific class type, which can help you determine what input type was received.
+* `get_tree().quit()` apparently closes your app.
 
 ## Physics!
 
