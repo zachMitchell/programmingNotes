@@ -36,6 +36,7 @@ console.log({thing1, thing2});
 */
 ```
 
+* This works with functions too! `thing = function({asdf}){console.log(asdf)}` can be called like this - `thing({asdf:1234})` and work correctly!
 * More object descructuring! `let [,,hi] = [1,2,3]; //hi becomes 3`
 * There's something called the "lexical scope" in regular objects. For some reason a standard [*nested*]function will not see `this` because it sees `this` from the global scope. arrow functions remedy this, which is weird because they see the scope from whatever encloses it... oh wait.
     * it says "because the javascript interpreter thinks it's an unsuplied function argument"...?
@@ -43,7 +44,14 @@ console.log({thing1, thing2});
 * `arguments` was introduced in ES5.
 * In ES6, they introduced something called "reset parameters", which means you can provide more arguments that don't have a full name. It's usefull because you don't have to remember & hardcode indexes! `function(thing1, thing2, ...everythingElse){console.log(everythingElse[1])}`
 * The appending syntax for arrays and function parameters (`...`) is called "spread syntax"
+* promises can grab just about any rejection in a chain through the `catch` function.
 
+## Modules
+
+* It appears that modules can be loaded in the web browser now!
+* mozilla does a good job describing this: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
+* asynchronous loading can also be done: `await import('myFile.js')`
+* There's an item in here I haven't seen before - `export item from './asdf.js'`. It's a clear path for the next module to see the contents of the previous module. The module making this call cannot see this variable either, just the one importing this module.
 ## Object syntactic sugar
 
 And here we witness a moment where javascript pretends to be object oriented:
@@ -90,3 +98,8 @@ new sandwich().thing = 6;
 ## Salesforce lightning
 
 * whoah, lightning web components are weird...
+
+## Exam details
+
+* The exam isn't the only thing required to get certified. There is a lightning components superbadge, which is probably the salesforce side of this equation.
+* 
