@@ -45,6 +45,7 @@ myNodeHere.Connect("my_listener_with_underscores", objectThisAppliesTo, nameOf(_
     * [Tutorial](https://docs.godotengine.org/en/stable/tutorials/inputs/inputevent.html)
     * GDScript has a special operator for boolean statements (`is`). In the tutorial above, it uses that to determine the specific class type, which can help you determine what input type was received.
 * `get_tree().quit()` apparently closes your app.
+* So one thing I learned when cross-communicating between GDScript and C# is that getting GDScript variables will copy the value over to C# instead of grabbing it directly. That means you would need to use Get/Set to apply values back and forth.
 
 ## Physics!
 
@@ -55,6 +56,8 @@ myNodeHere.Connect("my_listener_with_underscores", objectThisAppliesTo, nameOf(_
 
 * In GDScript you would load a file through [this object](https://docs.godotengine.org/en/stable/classes/class_file.html)
     * [get_buffer](https://docs.godotengine.org/en/stable/classes/class_file.html#class-file-method-get-buffer) will help obtain the file in something called a `PoolByteArray`, which converts everything into bytes. Audio-wise this is important if you want sounds to be dynamic and want to load streams of audio from a list.
+* I just learned today that if for some reason there are settings on your audio that aren't what you're wanting, there's a chance cached imports in the `.import` folder might be to blame. I deleted this and godot re-generated the correct settings.
+    * This probably happened because I was doing a bunch of file re-organization. Worth doing this then if an event like this comes up.
 
 ## Audio
 
