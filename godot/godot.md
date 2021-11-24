@@ -19,7 +19,11 @@ Pretty straightforward - I placed godot in my userspace folder (`/home/zachary/D
 I have one-half of the tools on linux:
 * [godot-tools](https://marketplace.visualstudio.com/items?itemName=geequlim.godot-tools)
     * The debug console doesn't fully work (not possible to edit variables on the spot), but in place of that the developers of the extension created an *interactions* section where you view nodes and change the values thorugh a different prompt. Global variables are also able to be watched in real time.
-* [c# tools for godot](https://marketplace.visualstudio.com/items?itemName=neikeq.godot-csharp-vscode) is installed, but is not working, at least with .NET
+* [c# tools for godot](https://marketplace.visualstudio.com/items?itemName=neikeq.godot-csharp-vscode) is installed, ~~but is not working, at least with .NET~~
+    * Got this to finally work, it was a problem I had with omnisharp. Microsoft explains this well: https://docs.microsoft.com/en-us/dotnet/core/install/linux-snap#troubles-resolving-dotnet
+    * In a nutshell, you need to set an environment variable for the snap version of dotnet. `MSBuildSDKsPath` was set in my `~/.profile` file, plus `DOTNET_ROOT`, which helps change the default location for dotnet. (in my case `/snap/dotnet-sdk/current`). `MSBuildSDKsPath` was set to `$DOTNET_ROOT/sdk/$(dotnet --version)/Sdks` for omnisharp.
+    * Microsoft also mentioned in the link above adding a symbolic link for applications looking for common locations that dotnet would reside in.
+* All of the c# hurdles were mostly because I installed this through a snap. Package managers might have better luck over snaps, so the steps above are probably not requried for a normal installation.
 
 ## Random links I want to remember
 
@@ -30,7 +34,7 @@ I have one-half of the tools on linux:
 Setting up a listener in C#
 
 ```c#
-myNodeHere.Connect("my_listener_with_underscores", objectThisAppliesTo, nameOf(_aMethodThatRunsWhenTheListenerHappens))
+myNodeHere.Connect("my_listener_with_underscores", objectThisAppliesTo, nameof(_aMethodThatRunsWhenTheListenerHappens))
 ```
 
 * Setting up a method to run at every frame can be done by un-commenting `_Process` in either language. It has a parameter for delta time so you don't have to process every frame, but rather time elapsed in seconds...
@@ -46,6 +50,7 @@ myNodeHere.Connect("my_listener_with_underscores", objectThisAppliesTo, nameOf(_
     * GDScript has a special operator for boolean statements (`is`). In the tutorial above, it uses that to determine the specific class type, which can help you determine what input type was received.
 * `get_tree().quit()` apparently closes your app.
 * So one thing I learned when cross-communicating between GDScript and C# is that getting GDScript variables will copy the value over to C# instead of grabbing it directly. That means you would need to use Get/Set to apply values back and forth.
+* apparently GDScript has no exception handling :/
 
 ## Physics!
 
