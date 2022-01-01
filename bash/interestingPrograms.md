@@ -68,6 +68,10 @@ I keep forgetting the name of this, so this section is here XP
 
 `fdisk -l` - lists your disks regardless if they're mounted or not.
 
+## dd & pv
+
+`dd` & `pv` are must-knows - they are used frequently to clone information, whether that be a disk image to a usb, or a drive to another drive. `pv` specifically views how much data has gone in & out of it, while dd does most of the heavy lifting
+
 ## update-rc.d
 
 A debian/ubuntu command that manages a service at startup. When searching for this command I wanted to disable world community grid in order to fire it up at will
