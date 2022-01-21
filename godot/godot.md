@@ -8,6 +8,8 @@ Despite being called the "mono" build (using an open-source variant of c#), I ke
 
 Another note: on linux the latest stable build of .NET is bugged for Ubuntu 21.04, so switching to the `edge` release was what I decided to work with. I'm guessing that won't be a big impact though.
 
+**UPDATE** that msbuild error was because it was a package exclusively in the mono deb repository. When originally attempting this, I couldn't install the repository for some reason, but it looks like it successfully updated everything today. *Mono is now my default c# compiler* There isn't a need for the dotnetcore package anymore. I heard nuget works here as well, so we should be good! Debugging works 100% as well.
+
 It looks like I can compile for every major OS! (Windows/macos/linux on one machine!)
 
 ### Manual installation
@@ -24,6 +26,7 @@ I have one-half of the tools on linux:
     * In a nutshell, you need to set an environment variable for the snap version of dotnet. `MSBuildSDKsPath` was set in my `~/.profile` file, plus `DOTNET_ROOT`, which helps change the default location for dotnet. (in my case `/snap/dotnet-sdk/current`). `MSBuildSDKsPath` was set to `$DOTNET_ROOT/sdk/$(dotnet --version)/Sdks` for omnisharp. ([source](https://gitanswer.com/ubuntu-the-sdk-microsoft-net-sdk-specified-could-not-be-found-typescript-omnisharp-vscode-403590789))
     * Microsoft also mentioned in the link above adding a symbolic link for applications looking for common locations that dotnet would reside in.
 * All of the c# hurdles were mostly because I installed this through a snap. Package managers might have better luck over snaps, so the steps above are probably not requried for a normal installation.
+* **Probably shouldn't follow those steps anymore on linux, mono is the compiler I'm using from here-on out**
 
 ## Random links I want to remember
 
