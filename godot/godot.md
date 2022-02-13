@@ -70,3 +70,11 @@ myNodeHere.Connect("my_listener_with_underscores", objectThisAppliesTo, nameof(_
 ## Audio
 
 * [AudioStreamMP3](https://docs.godotengine.org/en/stable/classes/class_audiostreammp3.html) is used for audio, but you need an `AudioStreamPlayer2D` (or 3D) to actually play this audio.
+
+## Inputs
+
+* `InputEvent`s are something I'm looking into, ~~it seems like godot's api doesn't really have direct methods of grabbing the input of a key like JS does~~ (or at least on the surface), but it can tell you what keycode something is depending on the keyboard
+    * I lied! [InputEventKey](https://docs.godotengine.org/en/stable/classes/class_inputeventkey.htm) and [KeyList](https://docs.godotengine.org/en/stable/classes/class_%40globalscope.html#enum-globalscope-keylist) would probably help if they were combined together
+* Godot globals: https://docs.godotengine.org/en/stable/classes/class_%40globalscope.html#enum-globalscope-keylist
+    * I need to learn how to use enums better in C# https://docs.microsoft.com/en-us/dotnet/api/system.enum?view=net-6.0#methods
+* 
