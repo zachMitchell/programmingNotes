@@ -1,0 +1,60 @@
+(https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics)
+
+* My-Domain helps you connect a sub-location to your main SF domain
+* If I understand the subtle nods from this text, it sounds like aura is what helps insert lightning web components into Visualforce pages?
+    * Actually I'm thinking not here, aura is a framework for lightning components, just like the LWC is a framework for lightning
+    * it sounds like you *can* place lightning inside of a visualforce component
+* using container pages is good if you want to use lightning web compoenents with other frameworks https://developer.salesforce.com/docs/atlas.en-us.224.0.pages.meta/pages/pages_html_container_page.htm
+* **slds** - a collection of css that salesforce put together to style components
+* Lightning apps created in salesforce can be placed on an external resource as well! LWC can also be used on it's own, but if you have salesforce data hevaily integrated in your system, it might be useful to export it. It's called "Lightning Out"
+* aura certainly feels a lot like visualforce. You first create components though the .cmp extension, and then you can place those components inside an app (.app), with the tag `<aura:application>`
+* This bundle thing is an interesting concept... the structure looks a lot like how lightning web components are put together.
+* `{! }` is an expression!
+* `<aura:attribute name="myName" description="1234567890" type="String">` you place this inside of a component to describe what values it can take.
+    * calling an atribute within the component of origin requires `{!v.attrHere}`... not sure why it's v and not self/this 
+    * Ah, it means "value provider"
+    * So that `type` section can actually be any SObject! It's rather interesting because you can insert data directly from SF this way.
+    * Oh, there's also a parameter with "required" as the title. Ommitting this means the attribute is not required
+    * "description" is one too, describes the attribute itself... is that for code editing?
+    * `{!v.expense.Reimbursed__c ? 'slds-theme_success' : ''}` - pasted this from the lesson, it looks like this has ternary logic?
+* `<aura:iteration>` is like the for loop of aura components, it takes `items` (list) & `var`, the variable name.
+* `<aura:if isTrue={!condition}>` - if statement
+    * `<aura:set attribute="else">` - else statement
+* Event listeners exist in aura that connect to JS. The javascript itself is located in dedicated files, so `componentName.js` - in a way it looks a lot like a module.exports
+
+~~code for a listener looks like this:~~ waiiiiit a minute - that looks a whole lot like lighting events
+
+```html
+<lightning:button onclick="{!c.functionName}">
+```
+
+```js
+({
+    //they must have taken queues from aura to build LWC
+    functionName(component, event, helper){
+        console.log(arguments);
+    }
+})
+```
+
+* Now I have more questions - how do lightning components communicate this way with aura? If it has the `lightning` I've presumed it's a javascript based component, so how is it getting something within the aura scope?
+    * I think I understand better now... aura is wrapping itself around LWC, and the listener is possible to see because we're in that scope and just placing the listener function inside a lightning web component
+* So far I only know how to access html attributes through `event.getSource()` in a controller function. You obtain these values by using a `.get("v.attributeHere")` and they can be set through the same means.
+* the component itself can be used to find the html of the document, though I'm not sure if they reall want you touching it all that much?
+* Finally - the challenge material did not allow me to actually run the code I'm trying to write in order to debug it... that's frankly pretty annoying XP - in the *next unit* (Input Data using Forms), they go on to show a method of placing in a default value for SObject data, which was the key to helping me watch the code itself go. Basically, you place the SObject data in an attribute that looks close to json: `{'SObjectType:':'mySObjectNameHere', 'Property__c':'propertyValue'}`
+    * I really didn't like that because I wanted to understand what was going on. For me to get any sort of grasp, I needed to use the reading material's example code and use a javascript debugger.
+    * sobject attribute I used: `"{'sObjectType':'Camping_Item__c', 'Price__c':12.34, 'Quantity__c':2, 'Packed__c':false}"`
+* Salesforce Lightning Design System (slds) helps to style lightning components; other than that I'm not sure yet what in entails
+    * It sounds like it's included with LWC by default, but when using aura, it's not?
+* I'm hearing this terminology in more than one location: a "harness" app. It sounds like something that helps you put everything together before constructing the main application.
+    * in the case of this lesson, it's more of a "wrapper" application, where it adds slds to list of things it extends `<aura:application extends="force:slds">`. From here it sounds like SF wants to place the "app" itself inside of a compoenent.
+* Haven't used javascript's reduce function before in an array: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+* There's some weird behavior when it comes to aura IDs, they seem different then html IDs in that you can group multiple elements together that have the same ID without reprecussions. If you want to find components with the smae IDs, then you can run `component.find('theIdHere')`. The component itself will return a proxy which acts like an array (not html collection).
+    * **Hey future you** - use component.find for aura IDs
+* it appears salesforce likes the concept of helpers so much that there are helper files in JS 0_o
+* If you have an array you're setting to an aura component, it works just like in js where you just need to reference the values being pushed. However, since you aren't actually changing the reference, aura won't know that anything happened, so you need to tell it yourself by doing `component.set(v.myArrayHere,myJsVariable)`
+* `<aura:handler>` - helps with running some javascript upon creating the component.
+* It doesn't mention this anywhere else besides trailhead, but lighting input components have a `min` attribute, along with other things (https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_forms)
+* When referencing aura variables inside components, the values themselves are not static. Rather, they will change based on what's inside the respective input field. It's also likely that if you do a setter, it will change everywhere as well.
+    * that is indeed what it does! e.g: `temp1.set('v.newItem.Packed__c', true)`
+* 

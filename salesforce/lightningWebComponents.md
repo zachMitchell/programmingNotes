@@ -61,3 +61,16 @@ Looking at the notes above looks like I was speeding through it. Down here I wil
     * Ah - so if a component holds another, then the css applied to the parent also applies to the child. gotta think with a scoping mindset here.
 * SF has it's own theming for salesforce stuff: Salesforce Lightning Design System.
 * 
+
+
+## Misc
+
+* The lightning data service (lds) is the method of which LWC can obtain data from salesforce. It's a wire, which means you hook it up to salesforce itself in order to use this ability. I'd guess it's not baked into LWC itself if that's the case, but rather a thing you would connect to if you had the code hosted on salesforce.
+* to use an apex method as a stateless method for lwc, you need `@AuraEnable(cacheable=true)
+* stealing this snippet from the page because it's interesting; to communicate with apex, you can wire it like you would a salesforce soql query! `import queryAccounts from '@salesforce/apex/AccountListControllerLwc.queryAccounts';`
+* If you want to see changes you made to lightning pages right away, you can disable caching: https://trailhead.salesforce.com/content/learn/modules/lwc-for-visualforce-developers/work-with-salesforce-data-in-lwc#disable-lightning-component-caching
+    * They advise for this that you don't want to do that in a production instance because it takes a while to load stuff otherwise
+* example wire `@wire(queryAccountsByRevenue({annualRevenue:"$annualRevenue"})) accounts;`
+    * I wonder if this can be updated again after the initial definition
+* There is another service called the "lightning navigation service" - which is similar to URLFOR in visualforce.
+* You can cross communicate with visualforce and LWC: https://developer.salesforce.com/docs/component-library/documentation/lwc/use_visualforce
