@@ -57,4 +57,60 @@
 * It doesn't mention this anywhere else besides trailhead, but lighting input components have a `min` attribute, along with other things (https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_forms)
 * When referencing aura variables inside components, the values themselves are not static. Rather, they will change based on what's inside the respective input field. It's also likely that if you do a setter, it will change everywhere as well.
     * that is indeed what it does! e.g: `temp1.set('v.newItem.Packed__c', true)`
-* 
+
+## [Communicating with the salesforce DB](https://trailhead.salesforce.com/content/learn/modules/lwc-for-visualforce-developers/work-with-salesforce-data-in-lwc)
+
+* with LWC/aura, you communicate to SF either through the lightning Data service, or through a component that creates a form using said service.
+    * Interesting, it looks really similar to LWC (js)
+    * @wire helps you call an apex method, `@wire(methodNameHere, {parameterName: '$jsVariableThatUsedApi'})`
+* `@AuraEnabled` is required to use an apex method if you want to communicate to SF
+    you can make it `@AuraEnabled(cacheable=true)` if your program makes many calls to salesforce. This will essentially save whatever previous query you did on the backend and replays it when you need it again. Not an ideal solution if you need new data everytime though.
+* an apex method built for aura is designed to be stateless. In other words, you don't want the class to create instances of this object or properties. it should be `static`
+* It's possible to disable the query cache from the salesforce org itself completely, separate from the code itself. SF doesn't recommend it unless you're developing code.
+* ...This basically looks like js LWC, is that the only way for aura components to get SF data?
+
+Holy cow... my browser directed me to the freaken wrong lesson A;SLDFJ;OQWIJPOIMQWC
+
+Ok, on the bright side, there's two things here that are important
+* The subject I was learning for aura is the same as lwc
+* static methods look to be the same here as well, so perhaps methods inside apex designed for Aura are compatible with LWC too. That would be nice.
+
+The lesson I'm looking for is this: https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_server
+
+Back to your regularly scheduled programming lessons...
+* pasting this straight from the lesson: `<aura:component controller="ExpensesController">`; that's a lot more straightforward then LWC
+* Gonna look at this next time, but it looks like you would initiate some async javascript on the controller side of your JS in order to use aura queries in SF.
+* They mention that in the controller context, `c.` is a reference to a server-side method, while the same thing on the markup is for referencing javascript controllers.
+* `$A.enqueAction(actionHere)` helps execute an apex call, it requires a refrence to the target action (defined in the aura markup). The action itself has a function: `setCallback((ctx,response)=>{});`
+    * the `ctx` in the example there is most likely going to be `this`, so the context for the function itself and it's values.
+* When creating an apex method that works with sharing rules (database items that can be seen by other user types, instead of just your own data), the class definition needs to have `with sharing` on it.
+    * beyond this, they mention the implementation of `isAccessible` and `isUpdatable` for these records are things you would have to check yourself.
+* Setting parameters for the method you're calling requires the `setParams` function, so `actionHere.setParams({apexParamName:"paramValue"})`;
+* When setting a field in aura markup, just remember that `required` in it's context is purely aesthetic, you'd have to still evaluate it in js.
+* I missed this one at the beginning, an **init handler** is a function called from aura, that runs when the component is created. `<aura:handler name="init" action="{!c.doInit}" value="{!this}"/>` is the example they have in the notes.
+* When using aura components, salesforce field names are case-sensitive, including when they are expressions in the markup. Perhaps case insensitivity is a visualforce & apex thing only.
+
+## Events
+
+* Events are a way to communicate to other components on the page. You don't set items directly. Reminds me of react's pure functional approach.
+* grabbing events can be done through the event handler in js: `component.getEvent("customEventName")`. ~~There doesn't have to be a definition for this, but anything listening will hear it, just like in vanilla js.~~
+    * I lied again, it looks like you need a `<aura:event>` tag in the markup. you set attributes inside using an `<aura:attribute>` tag.
+        * Ok interesting, the attribute can take primitives as well; that's something I've forgotten about all this time, but that will probably help set things up easliy for when you want something to execute
+        * `<aura:attribute name="variableName" type="String">`
+        * oh wait, does it need to be in a dedicated file? I suppose it could, though trailhead doesn't really talk about that here.
+            * ah here we go, it does, it just doesn't define that's going to be a .evt file. So if that's the case, we would use that to define an event we'd want to listen to.
+    * `event.setParams()` helps you send information to anything listening. The function takes an object which contains key/value pairs
+        * `event.setParam("variableName", "hello wolrd!");`
+    * finally, `.fire()` runs the event.
+* I read through it, but I'm a little lost as to what the structure looks like because it's dispersed across the expenses app which I stopped building. Instead I'm gonna look at the docs: https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/events_component.htm
+* Ok, I think things are more sorted out now. to Create an event:
+    1. create a .evt file (lighting event). It uses attributes like components do to define it's parameters.
+    1. in the desired component, register the event. This means you give it a name within the component and grab the source (name of the event file without .evt).
+        * This name is used in locations where you want to fire the event upon doing something else. (component.getEvent)
+        * Registering looks something like this: `<aura:registerEvent name="customEventName" type="c:customEventFile"/>`
+        * registering means to let this component fire events with this event component. It doesn't mean you are handling them though.
+    1. to handle the event, you need a handler in another component. I presume this component would be connected to the application itself in some way. This would be the core communictaion between components. JS would be set here to take in that event's parameters
+        * `<aura:handler name="customEventName" event="c:customEventFile" action="{!c.jsHandler}"/>`
+* That makes a lot more sense after looking at just two pages and skimming through the trailhead. I should really do that more often XP
+
+# holy cow I'm done... bye!

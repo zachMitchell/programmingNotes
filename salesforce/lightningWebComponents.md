@@ -1,3 +1,5 @@
+[Aura components reference](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/intro_framework.htm)
+
 * lightning web components are based on the W3C Standard - Web Components
 * Web components in general are FREAKEN AWESOME. I put another link in accessibility, but here it is again: https://developer.salesforce.com/docs/component-library/overview/components
     * This website's url can also work on your salesforce org, and shows components you built yourself as well.
