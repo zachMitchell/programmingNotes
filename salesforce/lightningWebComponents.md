@@ -23,6 +23,7 @@
     * `targets` can allow your web component to be more specific as to what pages it should be on.
     * Others are there too: https://developer.salesforce.com/docs/component-library/documentation/lwc/lwc.reference_configuration_tags
 * *critical!* - Salesforce forgot to add this in the sample file in order for components to be deployable on SF: `<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="bikeCard">`, specifically the `fqn` property. Without this, sfdx will scream and not deploy your changes.
+* `isExposed` is going to be a requirement if you need to debug a specific component in your org. Once you're done debugging it, you can always un-expose it.
 
 
 ## Handling events
@@ -37,6 +38,8 @@
     * javascript decorators can be used to define element properties. They are placed in the class constructor: `@api nameHere`
         * An element would use this syntax to accpet the property: `<c-my-component name-here='1234'></c-my-component>
     * Methods/functions can also be public inside a class constructor. @api can help with this too. When a element is queried, it get's the abiity to run this method via the queried element from the outside.
+        * I completely forgot to write this down when initially learning it, but there seems to be a special property when looking inside a LWC class itself called `template`, this property helps one access the dom, along with other things. The important thing to note is the only querying functions supported are `querySelector` and `querySelectorAll`.
+        * Other properties hidden inside template can be found through the JS debugger. seems like there's querySelector[all], dispatchEvent, parentElement, etc.
 * 
 
 # poking with my own code
@@ -76,3 +79,6 @@ Looking at the notes above looks like I was speeding through it. Down here I wil
     * I wonder if this can be updated again after the initial definition
 * There is another service called the "lightning navigation service" - which is similar to URLFOR in visualforce.
 * You can cross communicate with visualforce and LWC: https://developer.salesforce.com/docs/component-library/documentation/lwc/use_visualforce
+
+
+* Lightning web components refers to the components themselves, while Lightning Web Components refers to the programming model... :/
