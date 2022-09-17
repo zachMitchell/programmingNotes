@@ -79,3 +79,9 @@ A debian/ubuntu command that manages a service at startup. When searching for th
 The example from stackexchange -> duckduckgo XP
 `sudo update-rc.d -f apache2 remove`
 I used `disable` instead of remove 
+
+## chntpw
+
+[This program](https://opensource.com/article/18/3/how-reset-windows-password-linux) can help you reset a password in windows (not a hacker I swear XD)
+
+If memory serves me well I used this once to help unlock my father's pc because he didn't remember the password. So it has it's valid use cases
