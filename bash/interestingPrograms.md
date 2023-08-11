@@ -85,3 +85,16 @@ I used `disable` instead of remove
 [This program](https://opensource.com/article/18/3/how-reset-windows-password-linux) can help you reset a password in windows (not a hacker I swear XD)
 
 If memory serves me well I used this once to help unlock my father's pc because he didn't remember the password. So it has it's valid use cases
+
+## ip - set a static ip address
+
+I KEEP FORGETTING HOW TO DO THIS SO I'M WRITING IT HERE
+
+If for some reason I want a jank minecraft LAN party or am to lazy to use a router on two machines:
+
+```bash
+ip addr add 192.168.0.1/24 <ethernet-device>
+```
+
+[(How to geek)](https://www.howtogeek.com/839969/how-to-set-a-static-ip-address-in-ubuntu/)
+[ip-address](https://man.archlinux.org/man/ip-address.8)
